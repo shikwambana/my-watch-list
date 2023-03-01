@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { RouterModule } from '@angular/router';
+import { FlexLayoutModule } from "@angular/flex-layout";
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceWorkerModule } from '@angular/service-worker';
@@ -26,7 +27,8 @@ import { MyListComponent } from './components/my-list/my-list.component';
       registrationStrategy: 'registerWhenStable:30000'
     }),
     AppRoutingModule,
-    RouterModule
+    RouterModule,
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]
