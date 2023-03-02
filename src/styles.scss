@@ -14,10 +14,14 @@
     
     padding: 10px;
     background: rgb(2,0,36);
-    background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(37,38,55,1) 50%, rgba(255,255,255,0) 100%);
+    background: linear-gradient(180deg, #0200246b 0%, #25263778 50%, rgba(255, 255, 255, 0) 100%);
     h2 {
         text-align: center;
     }
+}
+
+.center {
+    text-align: center;
 }
 
 .actionBG {
@@ -39,6 +43,9 @@
     width: 300px;
 }
 
+.point {
+    cursor: pointer;
+}
 
 
 

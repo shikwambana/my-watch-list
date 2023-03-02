@@ -7,6 +7,9 @@ import {
   SafeStyle,
   DomSanitizer
 } from '@angular/platform-browser';
+import { FirebaseService } from '../../services/firebase.service';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-find-movies',
   templateUrl: './find-movies.component.html',
@@ -18,9 +21,14 @@ export class FindMoviesComponent implements OnInit {
   response : any = {}
   movies : any[] = [];
   foundMovies : any[] = [];
-  constructor(private omdb: OmdbService, private sanitizer: DomSanitizer) { }
+  constructor(private fb: FirebaseService,private omdb: OmdbService, private route: Router, private sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
+    if(!this.fb.getUser()){
+      this.fb.openSnackBar('Please Login First')
+      this.route.navigate(['/login']);
+    }
+    
     this.findMovies('batman')
   }
 

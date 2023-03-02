@@ -1,0 +1,24 @@
+<div fxLayout="column">
+  <div fxLayoutAlign="center center">
+    <h3 class="center">We Just need your Name and Email or Phone Number. Then you are good to go.
+        That's it. No Password needed. Happy Movie Nights
+    </h3>
+  </div>
+  <div fxLayoutAlign="center center">
+    <mat-form-field appearance="outline" class="width300px">
+      <mat-label>Name</mat-label>
+      <input #name  matInput placeholder="" />
+    </mat-form-field>
+  </div>
+  <div fxLayoutAlign="center center">
+    <mat-form-field appearance="outline" class="width300px">
+      <mat-label>Email Address or Phone Number</mat-label>
+      <input #email  matInput placeholder="" />
+    </mat-form-field>
+  </div>
+  <div fxLayoutAlign="center center">
+    <button mat-flat-button color="primary" [disabled]="!name.value || !email.value" (click)="signin(name.value,email.value)">
+        Sign In
+    </button>
+  </div>
+</div>

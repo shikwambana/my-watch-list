@@ -4,7 +4,7 @@
       <mat-label>Search for a Movie Title</mat-label>
       <input
         #movies
-        formControl="movies"
+        
         matInput
         placeholder=""
         (keyup.enter)="findMovies(movies.value)"
@@ -27,7 +27,7 @@
       </div>
       <div>
       <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="15px" style="padding: 15px" class="actionBG">
-        <div fxLayout="row" fxLayoutAlign="start center" class="actionBtn">
+        <div fxLayout="row" fxLayoutAlign="start center" class="actionBtn point">
           <mat-icon
             (click)="findMovies(movies.value)"
             style="cursor: pointer"
@@ -36,7 +36,7 @@
           >
           Add to Watchlist
         </div>
-        <div fxLayout="row" fxLayoutAlign="start center" class="actionBtn">
+        <div fxLayout="row" fxLayoutAlign="start center" class="actionBtn point">
           <mat-icon
             (click)="findMovies(movies.value)"
             style="cursor: pointer"
