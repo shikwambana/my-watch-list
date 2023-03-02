@@ -25,8 +25,21 @@ export class MyListComponent implements OnInit {
   fetchMovies(){
     this.fb.fetchObject(this.user['uid'],'uid','movies',true)
       .then((res : any) =>{
-        console.log(res)
-        this.foundMovies = res
+        if(res == 'no-data'){
+          this.foundMovies = []
+          
+        }else{
+          this.foundMovies = res
+        }
+        
       })
+  }
+
+  deleteMovie(movie: any){
+      this.fb.deleteObject(this.user['uid'],'uid',movie,'movies')
+        .then(res =>{
+          this.fb.openSnackBar('Movie Deleted');
+          this.fetchMovies()
+        })
   }
 }

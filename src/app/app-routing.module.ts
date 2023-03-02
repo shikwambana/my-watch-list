@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   { path: '', component: MyListComponent},
+  { path: 'watch', component: MyListComponent},
   { path: 'find', component: FindMoviesComponent},
   { path: 'login', component: LoginComponent}
 ]

@@ -1,5 +1,10 @@
 <div fxLayout="column" >
-    <div fxLayoutAlign="center center" fxLayout="column" *ngIf="!foundMovies">
+
+    <div fxLayoutAlign="center center" fxLayout="column">
+        <h2>Hi {{user.name}}, what are you watching today?</h2>
+    </div>
+
+    <div fxLayoutAlign="center center" fxLayout="column" *ngIf="foundMovies.length == 0">
         <h2 class="center">It's Lonely in Here. Add Some Movies to your List.</h2>
         <img src="../../../assets/movie.svg" alt="" style="max-width:350px">
         <button mat-flat-button color="primary" routerLink="/find" style="margin-top: 50px;">
@@ -34,7 +39,7 @@
                 </mat-icon>
               </button>
               <button mat-button>
-                <mat-icon style="cursor: pointer" >
+                <mat-icon style="cursor: pointer" (click)="deleteMovie(movie.imdbID)">
                     delete_forever
                 </mat-icon>
               </button>

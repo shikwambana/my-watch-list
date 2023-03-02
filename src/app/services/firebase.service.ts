@@ -56,6 +56,18 @@ export class FirebaseService {
       });
   }
 
+  deleteObject(uid: any, identifier: string, imdbID: string, collection: string){
+
+    return this.firestore.collection(collection)
+    .ref.where(identifier, '==', uid).where('imdbID','==',imdbID)
+      .get().then(function(querySnapshot) {
+        querySnapshot.forEach(function(doc) {
+          doc.ref.delete();
+        });
+      });
+    
+  }
+
   getUser() {
     if (sessionStorage.getItem('user')) {
       return JSON.parse(sessionStorage.getItem('user') || '{}');

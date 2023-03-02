@@ -35,6 +35,11 @@
     border-radius: 5px;
 }
 
+.actionBtn:focus {
+    background: seagreen;
+    padding: 5px;
+}
+
 .whiteColor {
     color: white;
 }
@@ -51,11 +56,15 @@
     margin: 10px;
 }
 
+a {
+    text-decoration: none;
+    color: black;
+}
 
-
-
-
-
+.activeRoute {
+    text-decoration: overline;
+    color: seagreen;
+}
 
 
 
