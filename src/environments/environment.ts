@@ -15,7 +15,7 @@ export const environment = {
   },
   production: false,
   omdbApiKey: 'd996c693',
-  omdbUrl: ' http://www.omdbapi.com'
+  omdbUrl: ' https://www.omdbapi.com'
 };
 
 /*

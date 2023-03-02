@@ -6,7 +6,7 @@
   "hosting": [
     {
       "public": "dist",
-      "target": "filimi1",
+      "target": "my-watch-list",
       "ignore": [
         "firebase.json",
         "**/.*",
@@ -20,7 +20,7 @@
       ]
     },
     {
-      "target": "filimi1",
+      "target": "my-watch-list",
       "public": "dist",
       "ignore": [
         "**/.*"
