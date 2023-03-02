@@ -33,13 +33,13 @@
                     visibility_off
                 </mat-icon>
               </button>
-              <button mat-button>
-                <mat-icon style="cursor: pointer" >
+              <button mat-button routerLink="/movie/{{movie.imdbID}}">
+                <mat-icon style="cursor: pointer">
                     info_outline
                 </mat-icon>
               </button>
-              <button mat-button>
-                <mat-icon style="cursor: pointer" (click)="deleteMovie(movie.imdbID)">
+              <button mat-button (click)="deleteMovie(movie.imdbID)">
+                <mat-icon style="cursor: pointer">
                     delete_forever
                 </mat-icon>
               </button>

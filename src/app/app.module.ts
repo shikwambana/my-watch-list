@@ -23,13 +23,15 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { AngularFireModule } from "@angular/fire/compat";
 import { AngularFirestoreModule } from "@angular/fire/compat/firestore";
 import { LoginComponent } from './login/login.component';
+import { MovieInfoComponent } from './movie-info/movie-info.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FindMoviesComponent,
     MyListComponent,
-    LoginComponent
+    LoginComponent,
+    MovieInfoComponent
   ],
   imports: [
     BrowserModule,
