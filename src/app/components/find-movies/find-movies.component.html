@@ -1,10 +1,9 @@
-<div fxLayout="column" >
-  <div fxLayoutAlign="center center" >
+<div fxLayout="column">
+  <div fxLayoutAlign="center center">
     <mat-form-field appearance="outline" class="width300px">
       <mat-label>Search for a Movie Title</mat-label>
       <input
         #movies
-        
         matInput
         placeholder=""
         (keyup.enter)="findMovies(movies.value)"
@@ -17,35 +16,64 @@
       >
     </mat-form-field>
   </div>
-  <div *ngIf="foundMovies" fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="10px" fxFlex="100">
-    <div *ngFor="let movie of foundMovies" class="moviePoster whiteColor" style="background-image: url({{movie.Poster}});"
-    fxLayout="column" fxLayoutAlign="space-between stretch" >
-      <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px" class="movieTitle" >
+
+  <div fxLayoutAlign="center center" fxLayout="column" *ngIf="noMovies">
+    <h2 class="center">Movie not found! Try a different title</h2>
+    <img src="../../../assets/no_movie.svg" alt="" style="max-width: 300px" />
+    
+  </div>
+
+  <div
+    *ngIf="foundMovies"
+    fxLayout="row wrap"
+    fxLayoutAlign="center center"
+    fxLayoutGap="10px"
+    fxFlex="100"
+  >
+    <div
+      *ngFor="let movie of foundMovies"
+      class="moviePoster whiteColor"
+      style="background-image: url({{ movie.Poster }});"
+      fxLayout="column"
+      fxLayoutAlign="space-between stretch"
+    >
+      <div
+        fxLayout="row"
+        fxLayoutAlign="center center"
+        fxLayoutGap="5px"
+        class="movieTitle"
+      >
         <div>
           <h2>{{ movie.Title }}</h2>
         </div>
       </div>
       <div>
-      <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="15px" style="padding: 15px" class="actionBG">
-        <div fxLayout="row" fxLayoutAlign="start center" class="actionBtn point">
-          <mat-icon
-            (click)="findMovies(movies.value)"
-            style="cursor: pointer"
-            matSuffix
-            >add</mat-icon
+        <div
+          fxLayout="row"
+          fxLayoutAlign="center center"
+          fxLayoutGap="15px"
+          style="padding: 15px"
+          class="actionBG"
+        >
+          <div
+            fxLayout="row"
+            fxLayoutAlign="start center"
+            class="actionBtn point"
+            (click)="addMovie(movie)"
           >
-          Add to Watchlist
-        </div>
-        <div fxLayout="row" fxLayoutAlign="start center" class="actionBtn point">
-          <mat-icon
+            <mat-icon style="cursor: pointer" matSuffix>add</mat-icon>
+            Add to Watchlist
+          </div>
+          <div
+            fxLayout="row"
+            fxLayoutAlign="start center"
+            class="actionBtn point"
             (click)="findMovies(movies.value)"
-            style="cursor: pointer"
-            matSuffix
-            >add</mat-icon
           >
-          Movie Info
+            <mat-icon style="cursor: pointer" matSuffix>info_outline</mat-icon>
+            Movie Info
+          </div>
         </div>
-      </div>
       </div>
     </div>
   </div>

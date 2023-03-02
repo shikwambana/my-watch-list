@@ -21,22 +21,52 @@ export class FindMoviesComponent implements OnInit {
   response : any = {}
   movies : any[] = [];
   foundMovies : any[] = [];
+  user : any = {};
+  noMovies = false
   constructor(private fb: FirebaseService,private omdb: OmdbService, private route: Router, private sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
     if(!this.fb.getUser()){
+
       this.fb.openSnackBar('Please Login First')
       this.route.navigate(['/login']);
+
+    }else{
+      this.user = this.fb.getUser()
     }
-    
-    this.findMovies('batman')
+
   }
 
   findMovies(title: string){
     this.omdb.findMovies(title).subscribe((res : movie[]) =>{
       console.log(res)
-      this.foundMovies = Array.from(res);
+      if(res){
+        this.noMovies = false;
+        this.foundMovies = Array.from(res);
+      }else{
+        this.noMovies = true;
+      }
+      
+    }, err =>{
+      this.fb.openSnackBar(`Couldn't reach Movie service`)
+      console.log(err)
+
     })
+  }
+
+  addMovie(movie: any){
+
+    movie['watched'] = false
+    movie['liked'] = false
+    movie['uid'] = this.user['uid']
+
+    console.log(movie)
+    this.fb.addObject(movie,'movies')
+      .then(res =>{
+        this.fb.openSnackBar(`${movie.Title} added to watch list`)
+      }, err=>{
+        this.fb.openSnackBar(`Couldn't add movie to watch list`)
+      })
   }
 
   sanitizeUrl(url: string){

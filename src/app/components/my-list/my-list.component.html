@@ -1,1 +1,46 @@
-<p>my-list works!</p>
+<div fxLayout="column" >
+    <div fxLayoutAlign="center center" fxLayout="column" *ngIf="!foundMovies">
+        <h2 class="center">It's Lonely in Here. Add Some Movies to your List.</h2>
+        <img src="../../../assets/movie.svg" alt="" style="max-width:350px">
+        <button mat-flat-button color="primary" routerLink="/find" style="margin-top: 50px;">
+            Find Movies
+        </button>
+    </div>
+
+
+    <div *ngIf="foundMovies" fxLayout="row wrap" fxLayoutAlign="center center" fxFlex="100">
+
+        <mat-card class="width300px movieCard" *ngFor="let movie of foundMovies">
+            <mat-card-header>
+              <mat-card-title>{{ movie.Title }}</mat-card-title>
+              <mat-card-subtitle>{{ movie.Year }}</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image src="{{movie.Poster}}" alt="Photo of a Shiba Inu">
+           
+            <mat-card-actions>
+              <button mat-button>
+                <mat-icon style="cursor: pointer" >
+                    thumb_up
+                </mat-icon>
+              </button>
+              <button mat-button>
+                <mat-icon style="cursor: pointer" >
+                    visibility_off
+                </mat-icon>
+              </button>
+              <button mat-button>
+                <mat-icon style="cursor: pointer" >
+                    info_outline
+                </mat-icon>
+              </button>
+              <button mat-button>
+                <mat-icon style="cursor: pointer" >
+                    delete_forever
+                </mat-icon>
+              </button>
+              
+            </mat-card-actions>
+          </mat-card>
+
+      </div>
+</div>
