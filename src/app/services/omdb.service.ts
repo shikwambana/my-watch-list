@@ -21,7 +21,7 @@ export class OmdbService {
     .pipe(map( (res : any) => res['Search']) )
    }
 
-   getMovieInfo(movieID: string){
+   getMovieInfo(movieID: string | undefined){
     return this.http.get(this.url + '/?i=' + movieID + '&apikey=' + this.apiKey)
    }
 }

@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from "@angular/router";
 import { MyListComponent } from './components/my-list/my-list.component';
 import { FindMoviesComponent } from './components/find-movies/find-movies.component';
-import { LoginComponent } from './login/login.component';
-import { MovieInfoComponent } from './movie-info/movie-info.component';
+import { LoginComponent } from './components/login/login.component';
+import { MovieInfoComponent } from './components/movie-info/movie-info.component';
 
 const routes: Routes = [
   { path: '', component: MyListComponent},

@@ -1,0 +1,21 @@
+<div fxLayout="column">
+    <div>
+        <h1>{{info.Title}}</h1>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="stretch start" fxFlex="100" fxLayoutGap="12px">
+        <div><img src="{{info.Poster}}" alt="" width="150px"></div>
+        <div>
+            <p><strong>{{info.Year}}  •  {{info.Rated}}  •  {{info.Runtime}} </strong></p>
+            <p><strong>{{info.Genre}}</strong></p>
+            <p>Directed By: <strong>{{info.Director}}</strong></p>
+            <p>IMDB Rating: <strong>{{info.imdbRating}}</strong></p>
+            <p>Starring: <strong>{{info.Actors}}</strong></p>
+            <p>Box Office: <strong>{{info.BoxOffice}}</strong></p>
+
+        </div>
+    </div>
+    <div>
+        <p>{{info.Plot}}</p>
+    </div>
+    <div></div>
+</div>
