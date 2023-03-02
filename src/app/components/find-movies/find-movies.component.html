@@ -1,1 +1,53 @@
-<p>find-movies works!</p>
+<div fxLayout="column" >
+  <div fxLayoutAlign="center center" >
+    <mat-form-field appearance="outline" class="width300px">
+      <mat-label>Search for a Movie Title</mat-label>
+      <input
+        #movies
+        formControl="movies"
+        matInput
+        placeholder=""
+        (keyup.enter)="findMovies(movies.value)"
+      />
+      <mat-icon
+        (click)="findMovies(movies.value)"
+        style="cursor: pointer"
+        matSuffix
+        >search</mat-icon
+      >
+    </mat-form-field>
+  </div>
+  <div *ngIf="foundMovies" fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="10px" fxFlex="100">
+    <div *ngFor="let movie of foundMovies" class="moviePoster whiteColor" style="background-image: url({{movie.Poster}});"
+    fxLayout="column" fxLayoutAlign="space-between stretch" >
+      <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px" class="movieTitle" >
+        <div>
+          <h2>{{ movie.Title }}</h2>
+        </div>
+      </div>
+      <div>
+      <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="15px" style="padding: 15px" class="actionBG">
+        <div fxLayout="row" fxLayoutAlign="start center" class="actionBtn">
+          <mat-icon
+            (click)="findMovies(movies.value)"
+            style="cursor: pointer"
+            matSuffix
+            >add</mat-icon
+          >
+          Add to Watchlist
+        </div>
+        <div fxLayout="row" fxLayoutAlign="start center" class="actionBtn">
+          <mat-icon
+            (click)="findMovies(movies.value)"
+            style="cursor: pointer"
+            matSuffix
+            >add</mat-icon
+          >
+          Movie Info
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+  <div></div>
+</div>
