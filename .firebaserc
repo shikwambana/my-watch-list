@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "filimi1"
+  },
+  "targets": {
+    "filimi1": {
+      "hosting": {
+        "my-watch-list": [
+          "filimi1"
+        ]
+      }
+    }
   }
 }

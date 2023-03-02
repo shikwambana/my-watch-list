@@ -104,6 +104,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "my-watch-list:build:production",
+            "firebaseProject": "filimi1",
+            "firebaseHostingSite": "filimi1"
+          }
         }
       }
     }
